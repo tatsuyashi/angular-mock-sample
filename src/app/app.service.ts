@@ -10,13 +10,13 @@ export class AppService {
   constructor(private httpClient: HttpClient) { }
 
   getGuitars(): Observable<Guitar[]> {
-    return of(GET_GUITARS_MOCK);
-    // return this.httpClient.get<Guitar[]>('/api/guitars');
+    // return of(GET_GUITARS_MOCK);
+    return this.httpClient.get<Guitar[]>('api/guitars');
   }
 
   postGuitar(guitar: Guitar): Observable<Guitar> {
-    return of(guitar);
-    // return this.httpClient.post<Guitar>('/api/guitars', guitar);
+    // return of(guitar);
+    return this.httpClient.post<Guitar>('api/guitars', guitar);
   }
 
 }
